@@ -1,0 +1,46 @@
+.nav {
+	position: fixed;
+	background: #222;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: all 0.3s ease-in-out;
+	z-index: 1000;
+}
+
+.nav .container {
+	padding: 20px 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.logo {
+	margin: 0;
+}
+
+.nav ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.nav a {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s ease-in-out;
+}
+
+.nav ul a {
+	padding: 7px 15px;
+}
+
+.nav.active {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav.active .container {
+	padding: 10px;
+}
+
+.nav a.current,
+.nav a:hover {
+	color: var(--primary);
+}
