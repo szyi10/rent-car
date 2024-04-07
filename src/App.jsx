@@ -1,34 +1,17 @@
-import { useEffect, useState } from "react"
-import { Navbar, Footer } from "./components"
-import Main from "./components/Main"
+import { lazy } from "react"
+import { Routes, Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+
+const Home = lazy(() => import("./pages/Home/Home"))
 
 const App = () => {
-  const [isVisible, setIsVisible] = useState(true)
-
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll)
-    return () => {
-      window.removeEventListener("scroll", listenToScroll)
-    }
-  })
-
-  const listenToScroll = () => {
-    let hieghtToHideFrom = 150
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop
-    if (winScroll > hieghtToHideFrom) {
-      isVisible && setIsVisible(false)
-    } else {
-      setIsVisible(true)
-    }
-  }
-
   return (
-    <div className="App">
-      <Navbar isVisible={isVisible} />
-      <Main />
-      <Footer />
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </>
   )
 }
 
